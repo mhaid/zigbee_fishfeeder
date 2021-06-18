@@ -5,9 +5,9 @@ ZigBee automatic feeder for fish based on the TI CC2530.
 
 ## Intruduction
 ### Purpose
-The puprose of the fish feeder project is:
-1. monitor the battery so a low battery is noticed right away;
-2. control the feeding time and amount via smarthome system.
+The purpose of the fish feeding project is:
+1. to monitor the battery so that a low battery is noticed immediately;
+2. to control the feeding time and quantity through the smarthome system.
 
 
 
@@ -26,7 +26,7 @@ For the building process you will need:
 2. The components listed in the BOM
 3. Solder paste, hot air gun (for SMD) + solder wire, solder station (for TH-wires),
 4. An automatic feeder which meets the requirements listed in _Feeder requirements_
-5. A smarthome system with ZigBee support (see _Smarthome notes_ for more details)
+5. A smarthome system with ZigBee support (and preferably the possibility to integrate own devices)
 
 
 
@@ -41,7 +41,10 @@ Once you got measurements on how big the PCB can be, search for the following co
 You will have to solder a cable onto those, so be sure it is doable before ordering a PCB.
 If it is not, you will propably have to replace the default PCB.
 
-**Important note:** If your Feeder uses batteries with a combined voltage of more than 3.6 V you will have to use a voltage devider before the Pin 0.7 of the CC2530 as it could otherwise destroy your chip. Please also note that the power supply used here is not be the best choice for input voltages > 3.3V. It is designed to step up and not to step down the battery voltage. 
+**Important note:** If your Feeder uses batteries with a combined voltage of more than 3.6 V you will have to use a voltage divider before Pin 0.7 of the CC2530 as it could otherwise destroy your chip. Please also note that the power supply used here is not be the best choice for input voltages > 3.3V. It is designed to step up and not to step down the battery voltage.
+
+<img src="Images/Schematic.jpg" width="65%">
+<img src="Images/Image_Feeder2.jpg" width="65%">
 
 
 
@@ -64,14 +67,24 @@ As the official CC-Debugger is quite expensive, you can also order thrid party d
 
 
 ### Soldering and flashing
-Once you recieved the PCBs and components, solder them on the PCB.
+Once you recieved the PCBs and components, solder them on the PCB. Also connect cables to the five through-hole contact on the PCB and solder them onto the correct contact of the feeder.
+
+<img src="Images/Image_Feeder3.JPG" width="65%">
+
 Now connect the CC-Debugger with the 6-Pin-Connector, press the button on the debugger and check if the green led lights up. If it stays red, check the polarity of the connector and try again. If it still does not work, check your solder joints.
+
+<img src="Images/Image_Feeder4.jpg" width="65%">
+
 Once successfully connected, downlaod the .hex file from this project, open the [TI Flash Programmer](https://www.ti.com/tool/FLASH-PROGRAMMER) (not TI Flash Programmer 2 !) and select the .hex file.
 After flashing, you are ready to go.
 
-I already implemented the device into Homey, but an implementation into other open ZigBee-Coordinators is possible. You could also use this ZigBee-Device as "Basic ZigBee Device", but it's possilbe that not all the features work correctly.
+<img src="Images/Image_Debugger.png" width="65%">
+
+I already implemented the device into Homey, but an implementation into other open ZigBee-Coordinators is possible. You could also use this ZigBee-Device as "Basic ZigBee Device", but it is possible that not all the features work correctly.
 
 Have fun with your new smart feeder!
 
 Cheers,
 Morris
+
+<img src="Images/Image_Feeder1.jpg" width="65%">
