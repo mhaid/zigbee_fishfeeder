@@ -71,9 +71,22 @@ As the official CC-Debugger is quite expensive, you can also order thrid party d
 
 
 ### Soldering and flashing
-Once you recieved the PCBs and components, solder them on the PCB. Also connect cables to the five through-hole contact on the PCB and solder them onto the correct contact of the feeder.
+Once you have received the boards and components, solder them to the board. Also connect the cables to the five through-hole contacts on the board and solder them to the correct contact of the feeder.
+The cable connections are shown in the next pictures, where the two rectangles of the same color are each connected by a cable.
+The green rectangle represents the hole where the antenna cable is attached. The length should be ~3.75cm for a 1/2 wavelength or ~1.87 cm for a 1/4 wavelength antenna.
 
+Overview:
 <img src="Images/Image_Feeder3.JPG" width="65%">
+
+Backside of the feeder-pcb:
+<img src="Images/Wiring_Feeder-Board_Backside.png" width="65%">
+
+Backside of the zigbee-pcb:
+<img src="Images/Wiring_ZigBee-Board_Backside.png" width="65%">
+
+Frontside of the zigbee-pcb:
+<img src="Images/Wiring_ZigBee-Board_Frontside.png" width="65%">
+
 
 Now connect the CC-Debugger with the 6-Pin-Connector, press the button on the debugger and check if the green led lights up. If it stays red, check the polarity of the connector and try again. If it still does not work, check your solder joints.
 
