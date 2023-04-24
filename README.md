@@ -114,7 +114,42 @@ All important ZigBee attributes of the device are shown in the following image o
 
 <img src="Images/Zigbee_Interviewresults.jpg" width="65%">
 
-I already implemented the device into [Homey](https://homey.app/), but an implementation into other open ZigBee-Coordinators is possible. You could also use this ZigBee-Device as "Basic ZigBee Device", but it is possible that not all the features work correctly.
+I already implemented the device into [Homey](https://homey.app/) and [Zigbee2MQTT](https://www.zigbee2mqtt.io/), but an implementation into other open ZigBee-Coordinators is possible. You could also use this ZigBee-Device as "Basic ZigBee Device", but it is possible that not all the features work correctly.
+
+
+#### Zigbee2MQTT
+To add your feeder to the zigbee2mqtt network, you need to define an external converter.
+To do this, you must upload the external converter to your zigbee2mqtt data folder and add two lines to your configuration.yaml. 
+If you have installed zigbee2mqtt on a Linux system (e.g. a rapberry pi), follow the steps below. The steps are similar for other operating systems.
+
+
+Option A: SSH
+1. Login to your zigbee2mqtt host system via SSH console.
+2. Navigate to the data folder: `cd /opt/zigbee2mqtt/data`
+3. Create a blank file with the name "mhaid.js": `> mhaid.js`
+4. Open the new file via nano: `nano mhaid.js`
+5. Now copy the contents of the file "z2m_converter_feeder.js" into the editor window, save the changes `CTRL + O` and close the editor `CTRL + X`.
+6. Open the configuration file via nano: `nano configuration.yaml`
+7. Append the following two lines:
+```
+external_converters:
+  - mhaid.js
+```
+
+
+Option B: FTP
+1. Rename the file "z2m_converter_feeder.js" to "mhaid.js"
+2. Login to your zigbee2mqtt host machine with your favorite ftp client.
+3. Navigate to the data folder of your zigbee2mqtt installation (for me that is /opt/zigbee2mqtt/data).
+4. Copy/Move the renamed file here.
+5. Open "configuration.yaml" in an editor of your choice.
+6. Append the following two lines:
+```
+external_converters:
+  - mhaid.js
+```
+
+
 
 
 <img src="Images/Image_Feeder1.jpg" width="65%">
